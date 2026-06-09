@@ -1,15 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Inicio from './src/screens/inicio';
-import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { enableScreens } from 'react-native-screens';
+import { Router } from './src/routers';
 import React from 'react';
+
+enableScreens();
 
 export default function App(){
   return (
-    <SafeAreaView>
-      <View>
-      <Inicio/>
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

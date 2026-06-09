@@ -1,88 +1,189 @@
 import { StyleSheet } from 'react-native';
-
-export const styles = StyleSheet.create({
-  
-  test:{
-    position: 'absolute',
-    bottom: 31,   // distância do fundo
-    right: 200,    // distância da direita
-  },
-  
-  
+import { colors } from '../../utils/colors';
+export { colors };
+export default StyleSheet.create({
   container: {
-    width: 412,
+    flex: 1,
+    backgroundColor: colors.background,
   },
-  header: {
-    backgroundColor: '#1a52c2',
-    borderRadius: 16,
-    padding: 20,
-  },
-  titleRow: {
+  topBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    marginBottom: 20,
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: colors.background,
   },
-  headerTitle: {
+  topBarBack: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  topBarTitle: {
+    marginHorizontal: 146,
     fontSize: 17,
-    fontWeight: '500',
-    color: '#fff',
+    fontWeight: '600',
+    color: colors.textPrimary,
+    letterSpacing: -0.3,
   },
-  bemVindo: {
-    bottom: -20,
-    alignSelf: 'center',
-    fontSize: 18,
-    color: '#aac4f7',
+  topBarSpacer: {
+    width: 36,
+  },
+  cameraContainer: {
+    marginHorizontal: 20,
+    marginBottom: 14,
+    backgroundColor: '#0D0F1A',
+    borderRadius: 20,
+    overflow: 'hidden',
+    height: 220,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  // cameraPlaceholder removido — substituído pela <CameraView> real
+  cornerBase: {
+    position: 'absolute',
+    width: 26,
+    height: 26,
+  },
+  cornerTL: {
+    top: 20,
+    left: 20,
+    borderTopWidth: 2.5,
+    borderLeftWidth: 2.5,
+    borderColor: '#FFFFFF',
+    borderTopLeftRadius: 6,
+  },
+  cornerTR: {
+    top: 20,
+    right: 20,
+    borderTopWidth: 2.5,
+    borderRightWidth: 2.5,
+    borderColor: '#FFFFFF',
+    borderTopRightRadius: 6,
+  },
+  cornerBL: {
+    bottom: 20,
+    left: 20,
+    borderBottomWidth: 2.5,
+    borderLeftWidth: 2.5,
+    borderColor: '#FFFFFF',
+    borderBottomLeftRadius: 6,
+  },
+  cornerBR: {
+    bottom: 20,
+    right: 20,
+    borderBottomWidth: 2.5,
+    borderRightWidth: 2.5,
+    borderColor: '#FFFFFF',
+    borderBottomRightRadius: 6,
+  },
+  scanLine: {
+    width: '55%',
+    height: 2,
+    backgroundColor: colors.primary,
+    opacity: 0.7,
+    borderRadius: 2,
+  },
+  scanHint: {
+    position: 'absolute',
+    bottom: 16,
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.45)',
+  },
+  optionCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: colors.surface,
+    marginHorizontal: 20,
+    marginBottom: 8,
+    borderRadius: 14,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  optionLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    flex: 1,
+  },
+  optionIconWrap: {
+    width: 38,
+    height: 38,
+    borderRadius: 10,
+    backgroundColor: colors.primaryLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  optionLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.textPrimary,
     marginBottom: 2,
   },
-  rackName: {
-    fontSize: 26,
-    fontWeight: '700',
-    color: '#fff',
-    marginBottom: 14,
-  },
-  badgeGestao: {
-    
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 7,
-    backgroundColor: 'rgba(255,255,255,0.15)',
-    borderRadius: 20,
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-    alignSelf: 'center',
-  },
-  gestaoDeRacks: {
-    fontSize: 20,
-    color: '#fff',
-  },
-  
-  containerQRCODE: {
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    borderWidth: 0.5,
-    borderColor: '#e0e0e0',
-    padding: 14,
-    alignItems: 'center',
-    width: 200,  
-  },
-  metricLabel: {
+  optionSub: {
     fontSize: 12,
-    color: '#888',
-    marginBottom: 8,
-    lineHeight: 16,
+    color: colors.textSecondary,
   },
-  metricValueRow: {
+  togglePill: {
+    width: 44,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    paddingHorizontal: 3,
+    alignItems: 'flex-end',
+  },
+  togglePillOff: {
+    backgroundColor: colors.border,
+    alignItems: 'flex-start',
+  },
+  toggleDot: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.15,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  chevron: {
+    fontSize: 18,
+    color: colors.textHint,
+  },
+  tabBar: {
     flexDirection: 'row',
-    alignItems: 'baseline',
-    gap: 4,
+    backgroundColor: colors.surface,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    paddingTop: 10,
+    paddingBottom: 24,
+    marginTop: 'auto',
   },
-  metricValue: {
-    fontSize: 28,
-    fontWeight: '600',
+  tabItem: {
+    flex: 1,
+    alignItems: 'center',
+    gap: 3,
   },
-  metricUnit: {
-    fontSize: 12,
-    color: '#888',
+  tabLabel: {
+    fontSize: 10,
+    fontWeight: '500',
+  },
+  tabLabelActive: {
+    color: colors.tabActive,
+  },
+  tabLabelInactive: {
+    color: colors.tabInactive,
   },
 });
