@@ -1,4 +1,4 @@
 export type RootStackParamList = {
-  Inicio: undefined;
-  Dados: { rackId?: number };
+  Home: undefined;
+  Data: { rackId?: number };
 };

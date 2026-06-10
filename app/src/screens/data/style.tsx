@@ -6,7 +6,7 @@ export { colors };
 export const styles = StyleSheet.create({
     container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background1,
     },
     topBar: {
     flexDirection: 'row',
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background1,
     },
     topBarAction: {
     width: 36,
@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     },
     barTrack: {
-    backgroundColor: colors.background,
+    backgroundColor: colors.background1,
     borderRadius: 6,
     height: 7,
     overflow: 'hidden',
@@ -190,33 +190,9 @@ export const styles = StyleSheet.create({
     color: colors.success,
     },
     unitMore: {
-    backgroundColor: colors.background,
+    backgroundColor: colors.background1,
     color: colors.textSecondary,
     borderWidth: 1,
     borderColor: colors.border,
     },
-    tabBar: {
-    flexDirection: 'row',
-    backgroundColor: colors.surface,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    paddingTop: 10,
-    paddingBottom: 24,
-    marginTop: 'auto',
-    },
-    tabItem: {
-    flex: 1,
-    alignItems: 'center',
-    gap: 3,
-    },
-    tabLabel: {
-    fontSize: 10,
-    fontWeight: '500',
-    },
-  tabLabelActive: {
-    color: colors.tabActive,
-  },
-  tabLabelInactive: {
-    color: colors.tabInactive,
-  },
 });

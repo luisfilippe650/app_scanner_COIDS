@@ -1,7 +1,9 @@
 export const colors = {
-  background: '#F5F6FA',
+  background1: '#F5F6FA',
+  backgroundtop: '#0B56C5',
   surface: '#FFFFFF',
-  primary: '#3F51B5',
+  primary: '#0B56C5',
+  secondary: "#1E73E8",
   primaryLight: '#E8EAF6',
   textPrimary: '#0D0F1A',
   textSecondary: '#6B7080',
@@ -11,6 +13,6 @@ export const colors = {
   successBg: '#E6F5EE',
   warning: '#C07A00',
   warningBg: '#FFF3DC',
-  tabActive: '#3F51B5',
+  tabActive: '#EDF5FF',
   tabInactive: '#A8AEBC',
 };

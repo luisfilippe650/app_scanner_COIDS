@@ -1,56 +1,60 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { colors } from '../../utils/colors';
+
 export { colors };
+
 export default StyleSheet.create({
-  container: {
+  conteiner: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background1,
   },
-  topBar: {
+  barraSuperior: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background1,
   },
-  topBarBack: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  topBarTitle: {
-    marginHorizontal: 146,
+  tituloBarraSuperior: {
+    flex: 1,
+    textAlign: 'center',
     fontSize: 17,
     fontWeight: '600',
     color: colors.textPrimary,
     letterSpacing: -0.3,
   },
-  topBarSpacer: {
+  espacadorBarraSuperior: {
     width: 36,
   },
-  cameraContainer: {
+  conteinerCamera: {
     marginHorizontal: 20,
     marginBottom: 14,
     backgroundColor: '#0D0F1A',
     borderRadius: 20,
     overflow: 'hidden',
-    height: 220,
+    height: 400,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  // cameraPlaceholder removido — substituído pela <CameraView> real
-  cornerBase: {
+  semPermissao: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#0d0d1a',
+    padding: 24,
+  },
+  textoSemPermissao: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 14,
+    opacity: 0.7,
+  },
+  baseCanto: {
     position: 'absolute',
     width: 26,
     height: 26,
   },
-  cornerTL: {
+  cantoSuperiorEsquerdo: {
     top: 20,
     left: 20,
     borderTopWidth: 2.5,
@@ -58,7 +62,7 @@ export default StyleSheet.create({
     borderColor: '#FFFFFF',
     borderTopLeftRadius: 6,
   },
-  cornerTR: {
+  cantoSuperiorDireito: {
     top: 20,
     right: 20,
     borderTopWidth: 2.5,
@@ -66,7 +70,7 @@ export default StyleSheet.create({
     borderColor: '#FFFFFF',
     borderTopRightRadius: 6,
   },
-  cornerBL: {
+  cantoInferiorEsquerdo: {
     bottom: 20,
     left: 20,
     borderBottomWidth: 2.5,
@@ -74,7 +78,7 @@ export default StyleSheet.create({
     borderColor: '#FFFFFF',
     borderBottomLeftRadius: 6,
   },
-  cornerBR: {
+  cantoInferiorDireito: {
     bottom: 20,
     right: 20,
     borderBottomWidth: 2.5,
@@ -82,14 +86,34 @@ export default StyleSheet.create({
     borderColor: '#FFFFFF',
     borderBottomRightRadius: 6,
   },
-  scanLine: {
-    width: '55%',
-    height: 2,
-    backgroundColor: colors.primary,
-    opacity: 0.7,
-    borderRadius: 2,
+  sobreposicaoEscaneado: {
+    position: 'absolute',
+    bottom: 16,
+    left: 16,
+    right: 16,
+    backgroundColor: 'rgba(0,0,0,0.75)',
+    borderRadius: 12,
+    padding: 12,
+    alignItems: 'center',
+    gap: 8,
   },
-  scanHint: {
+  textoEscaneado: {
+    color: '#fff',
+    fontSize: 13,
+    textAlign: 'center',
+  },
+  botaoNovaLeitura: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+  },
+  textoNovaLeitura: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#0d0d1a',
+  },
+  dicaLeitura: {
     position: 'absolute',
     bottom: 16,
     left: 0,
@@ -98,7 +122,10 @@ export default StyleSheet.create({
     fontSize: 12,
     color: 'rgba(255,255,255,0.45)',
   },
-  optionCard: {
+  espacadorVertical: {
+    marginVertical: 5,
+  },
+  cartaoOpcao: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -110,13 +137,13 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
-  optionLeft: {
+  conteinerOpcaoEsquerda: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
     flex: 1,
   },
-  optionIconWrap: {
+  envolturaIconeOpcao: {
     width: 38,
     height: 38,
     borderRadius: 10,
@@ -124,17 +151,20 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  optionLabel: {
+  iconeOpcao: {
+    borderRadius: 11,
+  },
+  rotuloOpcao: {
     fontSize: 14,
     fontWeight: '600',
     color: colors.textPrimary,
     marginBottom: 2,
   },
-  optionSub: {
+  subtituloOpcao: {
     fontSize: 12,
     color: colors.textSecondary,
   },
-  togglePill: {
+  botaoAlternador: {
     width: 44,
     height: 26,
     borderRadius: 13,
@@ -143,11 +173,11 @@ export default StyleSheet.create({
     paddingHorizontal: 3,
     alignItems: 'flex-end',
   },
-  togglePillOff: {
+  botaoAlternadorDesligado: {
     backgroundColor: colors.border,
     alignItems: 'flex-start',
   },
-  toggleDot: {
+  pontoAlternador: {
     width: 20,
     height: 20,
     borderRadius: 10,
@@ -158,32 +188,62 @@ export default StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   },
-  chevron: {
+  iconeSeta: {
     fontSize: 18,
     color: colors.textHint,
   },
-  tabBar: {
-    flexDirection: 'row',
-    backgroundColor: colors.surface,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    paddingTop: 10,
-    paddingBottom: 24,
-    marginTop: 'auto',
-  },
-  tabItem: {
+  // Modal Styles
+  modalSobreposicao: {
     flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    justifyContent: 'flex-end',
+  },
+  modalConteudo: {
+    backgroundColor: colors.surface,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    padding: 24,
+    paddingBottom: Platform.OS === 'ios' ? 40 : 24,
+  },
+  modalTitulo: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: colors.textPrimary,
+    marginBottom: 4,
+  },
+  modalSubtitulo: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    marginBottom: 16,
+  },
+  modalInput: {
+    backgroundColor: colors.background1,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 15,
+    color: colors.textPrimary,
+    marginBottom: 16,
+  },
+  modalBotaoPrincipal: {
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    paddingVertical: 14,
     alignItems: 'center',
-    gap: 3,
   },
-  tabLabel: {
-    fontSize: 10,
-    fontWeight: '500',
+  modalTextoBotaoPrincipal: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+    fontSize: 15,
   },
-  tabLabelActive: {
-    color: colors.tabActive,
+  modalBotaoCancelar: {
+    marginTop: 12,
+    alignItems: 'center',
   },
-  tabLabelInactive: {
-    color: colors.tabInactive,
+  modalTextoBotaoCancelar: {
+    color: colors.textSecondary,
+    fontSize: 14,
   },
 });

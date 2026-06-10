@@ -6,14 +6,15 @@ import {
     ScrollView,
     StatusBar,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { styles, colors } from './style';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { FootBar } from '../../components/footer';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../types/navigation';
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Dados'>;
-type DetailsRouteProp = RouteProp<RootStackParamList, 'Dados'>;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Data'>;
+type DetailsRouteProp = RouteProp<RootStackParamList, 'Data'>;
 
 export type RackOperationalStatus = 'operational' | 'warning' | 'offline';
 
@@ -59,6 +60,7 @@ const MAX_VISIBLE_FREE = 6;
 export default function RackDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<DetailsRouteProp>();
+  const insets = useSafeAreaInsets();
   
   const rackIdParam = route.params?.rackId;
   
@@ -88,8 +90,11 @@ export default function RackDetailScreen() {
   const remainingFree = allFreeUnits.length - visibleFreeUnits.length;
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
+    <View style={{ flex: 1, backgroundColor: colors.background1 }}>
+      <View style={{ height: insets.top, backgroundColor: colors.backgroundtop }} />
+      <StatusBar barStyle="light-content" backgroundColor={colors.backgroundtop} />
+      
+      <SafeAreaView edges={['left', 'right', 'bottom']} style={styles.container}>
 
       {/* Top bar */}
       <View style={styles.topBar}>
@@ -194,26 +199,8 @@ export default function RackDetailScreen() {
         <View style={{ height: 16 }} />
       </ScrollView>
 
-      {/* Tab bar */}
-      <View style={styles.tabBar}>
-        {(['Início', 'Racks', 'Perfil'] as const).map((label, i) => {
-          const icons = ['🏠', '🗄', '👤'];
-          const isActive = i === 1;
-          return (
-            <TouchableOpacity key={label} style={styles.tabItem} accessibilityRole="tab">
-              <Text style={{ fontSize: 20, opacity: isActive ? 1 : 0.45 }}>{icons[i]}</Text>
-              <Text
-                style={[
-                  styles.tabLabel,
-                  isActive ? styles.tabLabelActive : styles.tabLabelInactive,
-                ]}
-              >
-                {label}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
+      <FootBar activeIndex={1} />
     </SafeAreaView>
+    </View>
   );
 }
