@@ -10,7 +10,7 @@ export default function App(){
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Router />
+            <Router/>
       </NavigationContainer>
     </SafeAreaProvider>
   );
